@@ -32,13 +32,46 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        $user->delete();
-        return redirect()->route('user.index')->with('success', 'User  deleted successfully!');
+        if ($user->id != 1) {
+            $user->delete();
+            return back()->with('success', 'User deleted successfully!');
+        } else {
+            return redirect()->route('user.index')->with('danger', 'Cannot delete this user!');
+        }
     }
 
     public function edit(User $user)
     {
         return view('user.edit', compact('user'));
     }
+
+
+    public function makeadmin(User $user)
+    {
+        if ($user->id != 1) {
+            $user->is_admin = true;
+            $user->save();
+
+            return back()->with('success', 'Make admin successfully!');
+        }
+
+        return redirect()->route('user.index');
+    }
+
+    public function removeadmin(User $user)
+    {
+        if ($user->id != 1) {
+            $user->is_admin = false;
+            $user->save();
+
+            return back()->with('success', 'Remove admin successfully!');
+        }
+
+        return redirect()->route('user.index');
+    }
+
+
+
+
 
 }

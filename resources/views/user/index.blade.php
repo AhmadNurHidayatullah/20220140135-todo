@@ -81,7 +81,30 @@
                                             </span>
                                         </p>
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-6 py-4 text-white">
+                                    <div class="flex space-x-3">
+                                        @if ($data->is_admin)
+                                            <form action="{{ route('user.removeadmin', $data) }}" method="POST">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button class="text-blue-600 dark:text-blue-400 hover:underline">Remove Admin</button>
+                                            </form>
+                                        @else
+                                            <form action="{{ route('user.makeadmin', $data) }}" method="POST">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button class="text-red-600 dark:text-red-400 hover:underline">Make Admin</button>
+                                            </form>
+                                        @endif
+
+                                        <form action="{{ route('user.destroy', $data) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 dark:text-red-400 hover:underline text-sm">
+                                                Delete
+                                            </button>
+                                        </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @empty
