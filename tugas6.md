@@ -2,7 +2,7 @@
 
 ## 1. Todo Completed
 
-![alt text](<screenshot/tugas6/1. Todo Completed.png>)
+![alt text](<screenshot/tugas6/1. Todo Completed_.png>)
 
 ## 2. Todo Uncompleted
 
