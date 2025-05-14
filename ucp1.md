@@ -11,8 +11,8 @@
 
 ## 2. Browser Category
 
-
 ![alt text](<screenshot/ucp1/Browser Category.png>)
+
 
 
 ## 3. Browser User
