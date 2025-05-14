@@ -38,6 +38,7 @@
                         <thead class="text-s text-left text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-200">
                             <tr>
                                 <th scope="col" class="px-6 py-4">Title</th>
+                                <th scope="col" class="px-6 py-4">Category</th>
                                 <th scope="col" class="px-6 py-4">Status</th>
                                 <th scope="col" class="px-6 py-4">Action</th>
                             </tr>
@@ -50,6 +51,11 @@
                                             {{ $todo->title }}
                                         </a>
                                     </td>
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                    @if ($todo->category_id)
+                                    {{ $todo->category->title }}
+                                    @endif
+                                </td>
                                     <td class="px-6 py-4">
                                         @if (!$todo->is_done)
                                             <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">

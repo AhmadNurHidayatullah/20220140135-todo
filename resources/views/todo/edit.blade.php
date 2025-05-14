@@ -28,6 +28,22 @@
                         @enderror
                     </div>
 
+                    <div class="mb-6">
+                        <x-input-label for="category_id" :value="__('Category')" />
+                        <x-select id="category_id" name="category_id" class="block w-full mt-1">
+                            <option value="">Empty</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{ ($todo->category && $category->id == $todo->category->id) ? 'selected' : '' }}>
+                                    {{ $category->title }}
+                                </option>
+                            @endforeach
+                        </x-select>
+                        <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                    </div>
+
+
+
+
                     <div class="flex items-center gap-2">
                         <button 
                             type="submit"

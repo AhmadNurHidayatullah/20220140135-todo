@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +48,10 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
     // Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');   
+
+    Route::resource('categories', CategoryController::class);
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::resource('category', CategoryController::class)->except(['show']);
 });
 
 Route::middleware('auth','admin')->group(function () {
