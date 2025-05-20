@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+
+    // protected $fillable = ['title', 'user_id', 'category_id', ];
+
+    protected $with = ['todos'];
+
     /**
      * The attributes that should be hidden for serialization.
      *

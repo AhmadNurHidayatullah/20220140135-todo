@@ -58,7 +58,7 @@
                                     </a>
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $category->todos->count() }}
+                                    {{ $category->todos_count }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <form action="{{ route('category.destroy', $category) }}" method="POST">
